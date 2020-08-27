@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 export default function Navbar(){
 	return (
-		<nav className="navbar navbar-expand-sm">
+		<nav className="navbar">
 			<Head>
 			<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet"/>
-				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
-				<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossOrigin="anonymous"/>
+				<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossOrigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossOrigin="anonymous"></script>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			</Head>
 		
@@ -44,12 +44,21 @@ export default function Navbar(){
 			 	 </div>
 			</div>
 			<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-			  	<div className="navbar-nav ml-auto mr-5">
+			  	<div className="navbar-nav">
 			    	<Link href="#">
 			    		<a className="nav-link">Unete</a>
 			    	</Link>
 			    	<Link href="#">
 			    		<a className="nav-link">Iniciar Sesion</a>
+			    	</Link>
+			    	<Link href="#">
+			    		<a className="nav-link">Listas</a>
+			    	</Link>
+			    	<Link href="#">
+			    		<a className="nav-link">Categorias</a>
+			    	</Link>
+			    	<Link href="#">
+			    		<a className="nav-link">Recomendados</a>
 			    	</Link>
 			 	 </div>
 			</div>
@@ -59,6 +68,8 @@ export default function Navbar(){
 					height: 90px;
 					background: #30273F;
 					padding: 0;
+					position: relative;
+					z-index: 5;
 				}
 				.navbar-nav{
 					background: #30273F;
@@ -101,10 +112,39 @@ export default function Navbar(){
 				.barra3{
 					width: 40%;
 				}
-				.navbar-nav{
-					display: flex;
-					width: 200px;
+				@media(max-width: 600px){
+					.navbar-nav{
+						width: 100%;
+						text-align: center;
+					}
+					.navbar-nav a{
+						color: #EBEBEB;
+					}
+					.navbar-nav a:hover{
+						color: #30273F;
+						background: #EBEBEB;
+					}
 				}
+				@media(min-width: 600px){
+					.navbar-nav{
+						width: 300px;
+						height: 100vh;
+					}
+					.navbar-nav a{
+						margin-bottom: 10px;
+						margin-left: 10px;
+						padding: 0;
+						color: #EBEBEB;
+						transition-duration: 0.5s;
+					}
+					.navbar-nav a:hover{
+						padding-left: 3px;
+						border-left: solid 10px #6100FF;
+						border-radius: 5px;
+						transition-duration: 0.3s;
+					}
+				}
+				
 			`}</style>
 
 			<style jsx global>{`
