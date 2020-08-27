@@ -1,5 +1,5 @@
-import Head from 'next/Head';
-import Link from 'next/Link';
+import Head from 'next/head';
+import Link from 'next/link';
 
 
 export default function Navbar(){
