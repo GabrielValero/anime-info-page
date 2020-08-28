@@ -1,41 +1,49 @@
-import Navbar from '../Components/Navbar';
 import Head from 'next/head';
-export default function Home() {
+
+import Navbar from '../Components/Navbar';
+import AnimeList from '../Components/animeList';
+
+
+export default function Home({animes}) {
   return (
   	<div style={{minHeight:"100vh"}}>
   		<Head>
   			<title>Index</title>
   		</Head>
   		<Navbar/>
-  		<header className="header">
-  			<div className="Options col-xl-10">
-  				<div className="option">
-	  				<img src="/images/SoloLevelin.png" alt="SoloLevelin Img" />
-	  				<h2>MANGA</h2>
-	  			</div>
-	  			<div className="option">
-	  				<img src="/images/KimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
-	  				<h2>ANIME</h2>
-	  			</div>
-	  			</div>
-  		</header>
+  		<header >
+  		  <div className="header"></div>
+        <div className="Options col-xl-10">
+          <div className="option">
+            <img src="/images/SoloLevelin.png" alt="SoloLevelin Img" />
+            <h2>MANGA</h2>
+          </div>
+          <div className="option">
+            <img src="/images/KimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
+            <h2>ANIME</h2>
+          </div>
+        </div>
+      </header>
+
+      <AnimeList animes={animes}/>
   		<style jsx>{`
   			header{
   				position: relative;
-  				height: 90vh;
-  				display: flex;
-  				justify-content: center;
-  				background-size: cover;
-  				background-position: bottom; 
-  				background-image: url('/images/Group 21.png');
   			}
+        .header{
+          width: 100%;
+          height: 90vh;
+          background-size: cover;
+          background-position: bottom; 
+          background-image: url('/images/Group 21.png');
+        }
   			.Options{
-  				position: absolute;
+  				position: relative;
   				bottom: 0;
   				display: flex;
   				flex-wrap:wrap;
   				justify-content: space-around;
-  				transform: translateY(50%);
+  				transform: translateY(-50%);
   			}
 
   			.option{
@@ -84,5 +92,14 @@ export default function Home() {
   			}
   		`}</style>
   	</div>
+  )
+}
+Home.getInitialProps = ()=>{
+  return fetch('https://kitsu.io/api/edge/anime')
+  .then(res=> res.json())
+  .then(response=> {
+      const {data} = response;
+      return {animes: data}
+    }
   )
 }
