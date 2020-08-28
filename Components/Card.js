@@ -1,11 +1,10 @@
 export default function Card({anime}){
-	console.log(anime);
 	return(
 		<>
-			<div className="card m-3">
+			<div className="card m-3" key={anime.id}>
 				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
 				<div className="card-text">
-					<p className="text-title">{anime.canonicalTitle}</p>
+					<p className="text-title">{anime.canonicalTitle.length > 13 ? `${anime.canonicalTitle.slice(0,13)}...` : anime.canonicalTitle}</p>
 				</div>
 			</div>
 

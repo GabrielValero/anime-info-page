@@ -11,21 +11,26 @@ export default function Home({animes}) {
   			<title>Index</title>
   		</Head>
   		<Navbar/>
-  		<header >
-  		  <div className="header"></div>
+  		<header className="d-flex flex-column align-items-center">
+  		  <div className="header">
+
+        </div>
+
         <div className="Options col-xl-10">
           <div className="option">
             <img src="/images/SoloLevelin.png" alt="SoloLevelin Img" />
             <h2>MANGA</h2>
           </div>
           <div className="option">
-            <img src="/images/KimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
+            <img src="/images/kimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
             <h2>ANIME</h2>
           </div>
         </div>
       </header>
-
-      <AnimeList animes={animes}/>
+      <div className="container">
+        <h2 className="font-weight-bold">Trending</h2>
+        <AnimeList animes={animes}/>
+      </div>
   		<style jsx>{`
   			header{
   				position: relative;
@@ -65,6 +70,9 @@ export default function Home({animes}) {
   				margin:0;
   				z-index: 2;
   			}
+        .container{
+          max-width: 960px;
+        }
   			@media(max-width:950px){
   				.option img{
   					width: 60%; 
@@ -95,8 +103,17 @@ export default function Home({animes}) {
   )
 }
 Home.getInitialProps = ()=>{
-  return fetch('https://kitsu.io/api/edge/anime')
-  .then(res=> res.json())
+  
+  return fetch('https://kitsu.io/api/edge/trending/anime',{
+    headers:{
+      "Accept": "application/vnd.api+json",
+      "Content-Type": "application/vnd.api+json"
+    }
+  })
+  .then(res=>{
+    console.log(res);
+     return res.json();
+  })
   .then(response=> {
       const {data} = response;
       return {animes: data}
