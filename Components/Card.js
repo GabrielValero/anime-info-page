@@ -7,8 +7,8 @@ export default function Card({anime}){
 			<div className="card m-3">
 				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
 				<div className="back-text">
-					<p>{anime.synopsis.slice(0,100)} ...</p>
-					<Link href="#"><a className="back-link btn mt-auto mb-5">Ver mas</a></Link>
+					<p>{anime.synopsis.slice(0,80)} ...</p>
+					<Link href="#"><a className="back-link btn mt-auto">Ver mas</a></Link>
 				</div>
 				<div className="card-text">
 					<p className="text-title">{anime.canonicalTitle.length > 20 ? `${anime.canonicalTitle.slice(0,17)}...` : anime.canonicalTitle}</p>
@@ -31,7 +31,7 @@ export default function Card({anime}){
 					top:0;
 					right:0;
 					position: absolute;
-					background:rgba(48,49,63,0.7);
+					background:rgba(48,49,63,0.9);
 					transition-duration: 0.5s;
 					opacity: 0;
 					display: flex;
@@ -46,12 +46,15 @@ export default function Card({anime}){
 					color: white;
 					padding: 15px;
 					font-weight: 500;
+					padding-bottom:0;
+					margin: 0;
 				}
 				.back-text a{
 					width: 80%;
-					border: 2px solid #38F341;
 					color: white;
+					margin-bottom: 30px;
 					font-weight: 600;
+					border: 2px solid #38F341;
 				}
 				.back-text a:hover{
 					background: #38F341;
@@ -89,11 +92,18 @@ export default function Card({anime}){
 					.card{
 						width: 150px;
 					}
+					.btn{
+						padding: 0;
+						margin-bottom: 30px;
+					}
+					.back-text p{
+						font-size: 15px;
+					}
 					.card-text p{
 						padding:0 15px;
 						padding-bottom: 10px;
 						font-weight: 600;
-						font-size: 13px;
+						font-size: 10px;
 					}
 				}
 			`}</style>

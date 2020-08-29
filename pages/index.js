@@ -137,6 +137,5 @@ Home.getInitialProps = async ()=>{
       return data;
     }
   )
-  console.log(animes, mangas);
   return {animes: animes, mangas: mangas}
 }
