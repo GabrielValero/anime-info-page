@@ -1,8 +1,16 @@
+import Link from 'next/link';
+
+
 export default function Card({anime}){
+	console.log(anime)
 	return(
 		<>
-			<div className="card m-3" key={anime.id}>
+			<div className="card m-3">
 				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
+				<div className="back-text">
+					<p>{anime.synopsis.slice(0,100)} ...</p>
+					<Link href="#"><a className="back-link btn">Detalle</a></Link>
+				</div>
 				<div className="card-text">
 					<p className="text-title">{anime.canonicalTitle.length > 13 ? `${anime.canonicalTitle.slice(0,13)}...` : anime.canonicalTitle}</p>
 				</div>
@@ -17,6 +25,40 @@ export default function Card({anime}){
 					border: none;
 					border-radius: 15px;
 					position: relative;
+				}
+				.card>.back-text{
+					width: 100%;
+					height: 90%;
+					top:0;
+					right:0;
+					position: absolute;
+					background:rgba(48,49,63,0.7);
+					transition-duration: 0.5s;
+					opacity: 0;
+					display: flex;
+					align-items: center;
+					flex-direction: column;
+				}
+				.card>.back-text:hover{
+					opacity: 1;
+					transition-duration: 0.3s;
+				}
+				.card p{
+					color: white;
+					padding: 17px;
+					font-weight: 600;
+					letter-spacing: 1px;
+					
+					
+				}
+				.back-text a{
+					width: 80%;
+					border: 2px solid #2DBF19;
+					color: white;
+
+				}
+				.back-text a:hover{
+					background: #2DBF19;
 				}
 				.card-text{
 					height: 100%;
@@ -33,7 +75,7 @@ export default function Card({anime}){
 					margin: 0;
 					text-align: center;
 					color: white;
-					font-weight: bold
+					font-weight: bold;
 				}
 				.card-text:before{
 					content: '';
@@ -45,6 +87,17 @@ export default function Card({anime}){
 					height: 30px;
 					background: #30273F;
 					transform: rotate(5deg) translateY(-50%);
+				}
+				@media(max-width: 650px){
+					.card{
+						width: 150px;
+					}
+					.card-text p{
+						padding:0 15px;
+						padding-bottom: 10px;
+						font-weight: 600;
+						font-size: 13px;
+					}
 				}
 			`}</style>
 		</>

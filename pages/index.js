@@ -94,9 +94,9 @@ export default function Home({animes}) {
   				.option img{
   					width: 80%;
   				}
-  				header{
-  					height: 70vh;
-  				}
+          .header{
+            height: 70vh;
+          }
   			}
   		`}</style>
   	</div>
@@ -111,7 +111,6 @@ Home.getInitialProps = ()=>{
     }
   })
   .then(res=>{
-    console.log(res);
      return res.json();
   })
   .then(response=> {
