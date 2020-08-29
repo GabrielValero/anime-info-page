@@ -2,17 +2,16 @@ import Link from 'next/link';
 
 
 export default function Card({anime}){
-	console.log(anime)
 	return(
 		<>
 			<div className="card m-3">
 				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
 				<div className="back-text">
 					<p>{anime.synopsis.slice(0,100)} ...</p>
-					<Link href="#"><a className="back-link btn">Detalle</a></Link>
+					<Link href="#"><a className="back-link btn mt-auto mb-5">Ver mas</a></Link>
 				</div>
 				<div className="card-text">
-					<p className="text-title">{anime.canonicalTitle.length > 13 ? `${anime.canonicalTitle.slice(0,13)}...` : anime.canonicalTitle}</p>
+					<p className="text-title">{anime.canonicalTitle.length > 20 ? `${anime.canonicalTitle.slice(0,17)}...` : anime.canonicalTitle}</p>
 				</div>
 			</div>
 
@@ -43,22 +42,20 @@ export default function Card({anime}){
 					opacity: 1;
 					transition-duration: 0.3s;
 				}
-				.card p{
+				.back-text p{
 					color: white;
-					padding: 17px;
-					font-weight: 600;
-					letter-spacing: 1px;
-					
-					
+					padding: 15px;
+					font-weight: 500;
 				}
 				.back-text a{
 					width: 80%;
-					border: 2px solid #2DBF19;
+					border: 2px solid #38F341;
 					color: white;
-
+					font-weight: 600;
 				}
 				.back-text a:hover{
-					background: #2DBF19;
+					background: #38F341;
+					box-shadow: 0 0 10px #38F341; 
 				}
 				.card-text{
 					height: 100%;
@@ -70,7 +67,7 @@ export default function Card({anime}){
 					z-index:2;
 				}
 				.card-text p{
-					padding:0 30px;
+					padding:0 10px;
 					padding-bottom: 10px;
 					margin: 0;
 					text-align: center;

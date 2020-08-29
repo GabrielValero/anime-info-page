@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
 import Navbar from '../Components/Navbar';
-import AnimeList from '../Components/animeList';
+import List from '../Components/List';
 
 
-export default function Home({animes}) {
+export default function Home({animes, mangas}) {
   return (
   	<div style={{minHeight:"100vh"}}>
   		<Head>
@@ -28,8 +28,12 @@ export default function Home({animes}) {
         </div>
       </header>
       <div className="container">
-        <h2 className="font-weight-bold">Trending</h2>
-        <AnimeList animes={animes}/>
+        <h2 className="font-weight-bold">Anime Trending</h2>
+        <List animes={animes.slice(0,6)}/>
+      </div>
+      <div className="container mt-5">
+        <h2 className="font-weight-bold">Manga Trending</h2>
+        <List animes={mangas.slice(0,6)}/>
       </div>
   		<style jsx>{`
   			header{
@@ -102,9 +106,9 @@ export default function Home({animes}) {
   	</div>
   )
 }
-Home.getInitialProps = ()=>{
+Home.getInitialProps = async ()=>{
   
-  return fetch('https://kitsu.io/api/edge/trending/anime',{
+  const animes = await fetch('https://kitsu.io/api/edge/trending/anime',{
     headers:{
       "Accept": "application/vnd.api+json",
       "Content-Type": "application/vnd.api+json"
@@ -115,7 +119,24 @@ Home.getInitialProps = ()=>{
   })
   .then(response=> {
       const {data} = response;
-      return {animes: data}
+      return data;
+    }
+  );
+
+  const mangas = await fetch('https://kitsu.io/api/edge/trending/manga',{
+    headers:{
+      "Accept": "application/vnd.api+json",
+      "Content-Type": "application/vnd.api+json"
+    }
+  })
+  .then(res=>{
+     return res.json();
+  })
+  .then(response=> {
+      const {data} = response;
+      return data;
     }
   )
+  console.log(animes, mangas);
+  return {animes: animes, mangas: mangas}
 }

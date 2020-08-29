@@ -1,6 +1,6 @@
 import Card from './Card';
 
-export default function AnimeList({animes}){
+export default function List({animes}){
 
 	return(
 	 	<div className="d-flex justify-content-center flex-wrap">
