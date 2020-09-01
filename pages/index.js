@@ -4,7 +4,7 @@ import Navbar from '../Components/Navbar';
 import List from '../Components/List';
 
 
-export default function Home({animes, mangas}) {
+export default function Home({animes}) {
   return (
   	<div style={{minHeight:"100vh"}}>
   		<Head>
@@ -31,10 +31,10 @@ export default function Home({animes, mangas}) {
         <h2 className="font-weight-bold">Anime Trending</h2>
         <List animes={animes.slice(0,6)}/>
       </div>
-      <div className="container mt-5">
+      {/*<div className="container mt-5">
         <h2 className="font-weight-bold">Manga Trending</h2>
         <List animes={mangas.slice(0,6)}/>
-      </div>
+      </div>*/}
   		<style jsx>{`
   			header{
   				position: relative;
@@ -123,7 +123,7 @@ Home.getInitialProps = async ()=>{
     }
   );
 
-  const mangas = await fetch('https://kitsu.io/api/edge/trending/manga',{
+ /* const mangas = await fetch('https://kitsu.io/api/edge/trending/manga',{
     headers:{
       "Accept": "application/vnd.api+json",
       "Content-Type": "application/vnd.api+json"
@@ -136,6 +136,6 @@ Home.getInitialProps = async ()=>{
       const {data} = response;
       return data;
     }
-  )
-  return {animes: animes, mangas: mangas}
+  )*/
+  return {animes: animes}
 }

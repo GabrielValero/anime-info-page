@@ -68,6 +68,9 @@ export default function header({attributes}){
 					display: flex;
 					transform: translateY(25%);
 				}
+				.container-img{
+					min-width: 330px;
+				}
 				.container-img img{
 					box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
 				}
