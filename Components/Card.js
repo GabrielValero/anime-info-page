@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
 
-export default function Card({anime}){
+export default function Card({anime, type, id}){
 	return(
 		<>
 			<div className="card m-3">
 				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
 				<div className="back-text">
 					<p>{anime.synopsis.slice(0,80)} ...</p>
-					<Link href="#"><a className="back-link btn mt-auto">Ver mas</a></Link>
+					{type == 'manga' ? <Link href={`/manga?id=${id}`} ><a className="back-link btn mt-auto">Ver mas</a></Link> : <Link href={`/anime?id=${id}`}><a className="back-link btn mt-auto">Ver mas</a></Link>}
 				</div>
 				<div className="card-text">
 					<p className="text-title">{anime.canonicalTitle.length > 20 ? `${anime.canonicalTitle.slice(0,17)}...` : anime.canonicalTitle}</p>
