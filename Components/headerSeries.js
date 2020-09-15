@@ -166,10 +166,11 @@ export default function header({attributes, id, type}){
 					width: 60px;
 					height: 60px;
 					margin-top: 30px;
-					border-radius: 100px;
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					position: relative;
+					border-radius: 100px;
 					box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 				}
 				.heart{
@@ -177,15 +178,36 @@ export default function header({attributes, id, type}){
 					color: ${fav==false ? "#FF002E" : "white" };
 					background: ${fav==false ? "white" : "#FF002E"};
 				}
+				.heart:after{
+					content: 'Favorito';
+					color: #323232;
+					font-weight: bold;
+					bottom: -50%;
+					position: absolute;
+				}
 				.book{
 					transition-duration: 500ms;
 					color: ${ reading == false ? "#0ABD27" : "white" };
 					background:${ reading == false ? "white" : "#0ABD27"} ;
 				}
+				.book:after{
+					content: 'Leyendo';
+					color: #323232;
+					font-weight: bold;
+					bottom: -50%;
+					position: absolute;
+				}
 				.bookmark{
 					transition-duration: 500ms;
 					color: ${ saved == false ? "#6100FF" : "white" };
 					background: ${ saved == false ? "white" :"#6100FF"};
+				}
+				.bookmark:after{
+					content: 'Guardar';
+					color: #323232;
+					font-weight: bold;
+					bottom: -50%;
+					position: absolute;
 				}
 
 

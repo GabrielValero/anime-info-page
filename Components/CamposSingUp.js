@@ -55,7 +55,7 @@ export default function FormSingUp(){
 			</div>
 			<form method="POST" onSubmit={(e)=> handleSubmit(e)} className="ml-md-5 my-5">
 				<div>
-					<h2 className="text-center">Unete al lado Oscuro</h2>
+					<h2 className="text-center">Unete al Lado Oscuro</h2>
 					<small style={{color:'#E56464'}}>{errorSingUp !='' ? errorSingUp : null}</small>
 					<input className="form-control text-center" type="text" placeholder="Email" name="email" value={email} onChange={(e)=> {setEmail(e.target.value)}} />
 					<small style={{color:'#E56464'}}>{errorEmail !='' ? errorEmail : null}</small>
