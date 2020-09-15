@@ -3,11 +3,15 @@ import Navbar from '../Components/Navbar';
 import Header from '../Components/headerSeries';
 import Episodes from '../Components/Episodes';
 
+//Provider
+import {UserProvider} from '../context/user'
+
 export default function Series({manga, episodes}){
 	const attributes = manga.attributes;
 
 	return (
-		<div>
+	<UserProvider>
+		<div style={{marginTop: "90px"}}>
 			<Head>
 				<title>{attributes.canonicalTitle}</title>
 			</Head>
@@ -207,6 +211,7 @@ export default function Series({manga, episodes}){
 				}
 			`}</style>
 		</div>
+	</UserProvider>
 	)
 }
 Series.getInitialProps = async({query})=>{

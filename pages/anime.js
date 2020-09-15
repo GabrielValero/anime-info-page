@@ -3,16 +3,21 @@ import Navbar from '../Components/Navbar';
 import Header from '../Components/headerSeries';
 import Episodes from '../Components/Episodes';
 
+//Provider
+import {UserProvider} from '../context/user'
+
 export default function Series({anime, episodes}){
 	const attributes = anime.attributes;
 
 	return (
-		<div>
+	<UserProvider>
+		<div style={{marginTop: "90px"}}>
 			<Head>
 				<title>{attributes.canonicalTitle}</title>
 			</Head>
 			<Navbar/>
-			<Header attributes={attributes}/>
+			<Header attributes={attributes} id={anime.id} type="anime"/>
+
 			<div className="d-flex align-items-center analytics">
 				<div>
 					<div className="puntuacion graphics">
@@ -207,6 +212,7 @@ export default function Series({anime, episodes}){
 				}
 			`}</style>
 		</div>
+	</UserProvider>
 	)
 }
 Series.getInitialProps = async({query})=>{
