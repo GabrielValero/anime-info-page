@@ -49,7 +49,7 @@ export default function Home({animes, mangas}) {
             height: 90vh;
             background-size: cover;
             background-position: bottom; 
-            background-image: url('/images/Group 21.png');
+            background-image: url('/images/Group-21.jpg');
           }
     			.Options{
     				position: relative;

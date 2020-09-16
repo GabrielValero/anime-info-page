@@ -168,6 +168,11 @@ export default function Botons({attributes, id, type}){
 					bottom: -50%;
 					position: absolute;
 				}
+				@media(max-width: 765px){
+					.botons div{
+						margin-top: 10px;
+					}
+				}
 			`}</style>
 		</div>
 	)
