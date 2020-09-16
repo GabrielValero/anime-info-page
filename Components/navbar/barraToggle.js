@@ -1,9 +1,15 @@
 import Link from 'next/link';
+import {useContext} from 'react';
+
+import UserContext from '../../context/user'
 
 import {verify, logout} from '../../firebase/client';
 
 export default function BarraToggle({user, imgUser}){
+	const {setUser, setImg} = useContext(UserContext);
+	
 	if(user == "Nada") verify();
+
 	return(
 		<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 		  	<div className="navbar-nav">

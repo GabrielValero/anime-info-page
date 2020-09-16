@@ -8,7 +8,7 @@ export default function Card({serie, type, id}){
 				<img className="card-img-top" src={serie.posterImage.small} alt={serie.canonicalTitle} width="100%"/>
 				<div className="back-text">
 					<p>{serie.synopsis.slice(0,80)} ...</p>
-					{type == 'manga' ? <Link href={`/manga?id=${id}`} ><a className="back-link btn mt-auto">Ver mas</a></Link> : <Link href={`/serie?id=${id}`}><a className="back-link btn mt-auto">Ver mas</a></Link>}
+					<Link href={`/${type}?id=${id}`} ><a className="back-link btn mt-auto">Ver mas</a></Link>
 				</div>
 				<div className="card-text">
 					<p className="text-title">{serie.canonicalTitle.length > 20 ? `${serie.canonicalTitle.slice(0,17)}...` : serie.canonicalTitle}</p>

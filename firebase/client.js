@@ -50,7 +50,7 @@ export const loginWithGoogle = ()=>{
 }
 
 export const logout = async()=>{
-	await firebase.auth().signOut()
+	await firebase.auth().signOut();
 }
 
 //No tocar, esto es para verificar si el usuario esta autenticado
@@ -62,7 +62,7 @@ export const verify = ()=>{
 		if(userCredentials) {
 			setImg(userCredentials.photoURL);
 			setUser(userCredentials.email);
-		}else setUser('Nada');
+		}
 	});
 }
 

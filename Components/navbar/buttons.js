@@ -1,7 +1,7 @@
 export default function Toggle(){
 	return(
 		<div className="button">
-			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<div className="navbar-toggler " data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<div className="menu">
 			  		<div>
 			  			<span className="barras barra1"></span>
@@ -9,7 +9,7 @@ export default function Toggle(){
 				  		<span className="barras barra3"></span>
 			  		</div>
 				</div>
-			</button>
+			</div>
 			<style jsx>{`
 				.button{
 					height: 100%;

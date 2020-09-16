@@ -50,6 +50,12 @@ export default function Botons({attributes, id, type}){
 					}
 				}
 			})
+		}else{
+			if (mounted) {
+				setFav(false)
+				setReading(false)
+				setSaved(false)
+			}
 		}
 		return function cleanup() {
             mounted = false
@@ -59,25 +65,36 @@ export default function Botons({attributes, id, type}){
 
 	const handlerFav = ()=>{
 		if(user == 'Nada') router.push('/login');
-		else if(fav == false) setFav(true);
-		else setFav(false);
-
-		UpdateFav(user, attributes.canonicalTitle,attributes.posterImage.small, id, fav, type) 
-		
+		else if(fav == false){
+		 setFav(true);
+		 UpdateFav(user, attributes.canonicalTitle,attributes.posterImage.small, id, fav, type) 
+		}
+		else{
+		 	setFav(false);
+		 	UpdateFav(user, attributes.canonicalTitle,attributes.posterImage.small, id, fav, type) 
+		}
 	}
 	const handlerReading = ()=>{
 		if(user == 'Nada') router.push('/login');
-		else if(reading == false) setReading(true);
-		else setReading(false);
-
-		UpdateReading(user, attributes.canonicalTitle, attributes.posterImage.small,id, reading, type) 
+		else if(reading == false){
+		 	setReading(true);
+		 	UpdateReading(user, attributes.canonicalTitle, attributes.posterImage.small,id, reading, type)
+		}
+		else{
+		 setReading(false);
+		 UpdateReading(user, attributes.canonicalTitle, attributes.posterImage.small,id, reading, type)
+		}
 	}
 	const handlerSaved= ()=>{
 		if(user == 'Nada') router.push('/login');
-		else if(saved == false) setSaved(true);
-		else setSaved(false);
-
-		UpdateSaved(user, attributes.canonicalTitle, attributes.posterImage.small,id, saved, type) 
+		else if(saved == false){
+		 	setSaved(true);
+		 	UpdateSaved(user, attributes.canonicalTitle, attributes.posterImage.small,id, saved, type) 
+		}
+		else{
+		 	setSaved(false);
+		 	UpdateSaved(user, attributes.canonicalTitle, attributes.posterImage.small,id, saved, type) 
+		}
 	}
 
 	return(

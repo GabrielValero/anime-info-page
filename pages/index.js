@@ -24,7 +24,7 @@ export default function Home({animes, mangas}) {
                 <h2>MANGA</h2>
               </a>
             </Link>
-            <Link href="animes">
+            <Link href="/animes">
               <a className="option">
                 <img src="/images/kimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
                 <h2>ANIME</h2>
@@ -34,11 +34,11 @@ export default function Home({animes, mangas}) {
         </header>
         <div className="container">
           <h2 className="font-weight-bold">Anime Trending</h2>
-        <List series={animes.slice(0,6)}/>
+        <List series={animes}/>
         </div>
         <div className="container mt-5">
           <h2 className="font-weight-bold">Manga Trending</h2>
-          <List series={mangas.slice(0,6)}/>
+          <List series={mangas}/>
         </div>
     		<style jsx>{`
     			header{

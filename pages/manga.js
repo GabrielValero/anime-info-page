@@ -63,7 +63,8 @@ export default function Series({manga}){
 					</div>
 				</div>
 				<div className="col-lg-8 d-flex justify-content-center flex-wrap">
-					
+					<h2>NO HAY CAPITULOS T.T</h2>
+					<img src="/images/13.svg" alt="error 404 img" width="80%" />
 				</div>
 			</div>
 			<style jsx>{`

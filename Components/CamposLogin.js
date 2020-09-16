@@ -14,11 +14,15 @@ export default function FormLogin(){
 	const [errorPass, setErrorPass] = useState('');
 	const [errorLogin, setErrorLogin] = useState('');
 
-	const {user, setUser} = useContext(UserContext)
+	const {user} = useContext(UserContext)
 	const router = useRouter();
 
 	useEffect(()=>{
-		if(user != 'Nada') router.push('/');
+		let mounted = true;
+		if(user != 'Nada' && mounted) setTimeout(()=>router.push('/'), 1000)
+		return ()=>{
+			mounted = false;
+		}
 	}, [user])
 
 	const handleSubmit= (e)=>{
