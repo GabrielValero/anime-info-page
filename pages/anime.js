@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Navbar from '../Components/Navbar';
-import Header from '../Components/headerSeries';
-import Episodes from '../Components/Episodes';
+import Header from '../Components/Series/headerSeries';
+import Episodes from '../Components/Series/Episodes';
 
 //Provider
 import {UserProvider} from '../context/user'

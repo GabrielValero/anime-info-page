@@ -1,12 +1,13 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Navbar from '../Components/Navbar';
-import List from '../Components/List';
+import List from '../Components/Series/List';
 
 //Provider
 import {UserProvider} from '../context/user'
 
-export default function Home({animes}) {
+export default function Home({animes, mangas}) {
   return (
     <UserProvider>
     	<div style={{minHeight:"100vh"}}>
@@ -17,24 +18,28 @@ export default function Home({animes}) {
           </div>
 
           <div className="Options col-xl-10">
-            <div className="option">
-              <img src="/images/SoloLevelin.png" alt="SoloLeveling Img" />
-              <h2>MANGA</h2>
-            </div>
-            <div className="option">
-              <img src="/images/kimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
-              <h2>ANIME</h2>
-            </div>
+            <Link href="/mangas">
+              <a className="option">
+                <img src="/images/SoloLevelin.png" alt="SoloLeveling Img" />
+                <h2>MANGA</h2>
+              </a>
+            </Link>
+            <Link href="animes">
+              <a className="option">
+                <img src="/images/kimetsuNoYaiba.png" alt="KimetsuNoYaiba Img" />
+                <h2>ANIME</h2>
+              </a>
+            </Link>
           </div>
         </header>
         <div className="container">
           <h2 className="font-weight-bold">Anime Trending</h2>
-        <List animes={animes.slice(0,6)}/>
+        <List series={animes.slice(0,6)}/>
         </div>
-        {/*<div className="container mt-5">
+        <div className="container mt-5">
           <h2 className="font-weight-bold">Manga Trending</h2>
-          <List animes={mangas.slice(0,6)}/>
-        </div>*/}
+          <List series={mangas.slice(0,6)}/>
+        </div>
     		<style jsx>{`
     			header{
     				position: relative;
@@ -123,7 +128,7 @@ Home.getInitialProps = async ()=>{
     }
   );
 
- /* const mangas = await fetch('https://kitsu.io/api/edge/trending/manga',{
+  const mangas = await fetch('https://kitsu.io/api/edge/trending/manga',{
     headers:{
       "Accept": "application/vnd.api+json",
       "Content-Type": "application/vnd.api+json"
@@ -136,6 +141,6 @@ Home.getInitialProps = async ()=>{
       const {data} = response;
       return data;
     }
-  )*/
-  return {animes: animes}
+  )
+  return {animes: animes, mangas:mangas}
 }

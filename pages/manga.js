@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Navbar from '../Components/Navbar';
-import Header from '../Components/headerSeries';
-import Episodes from '../Components/Episodes';
+import Header from '../Components/Series/headerSeries';
+import Episodes from '../Components/Series/Episodes';
 
 //Provider
 import {UserProvider} from '../context/user'
 
-export default function Series({manga, episodes}){
+export default function Series({manga}){
 	const attributes = manga.attributes;
 
 	return (
@@ -16,7 +16,7 @@ export default function Series({manga, episodes}){
 				<title>{attributes.canonicalTitle}</title>
 			</Head>
 			<Navbar/>
-			<Header attributes={attributes}/>
+			<Header attributes={attributes} id={manga.id} type="manga"/>
 			<div className="d-flex align-items-center analytics">
 				<div>
 					<div className="puntuacion graphics">
@@ -63,7 +63,7 @@ export default function Series({manga, episodes}){
 					</div>
 				</div>
 				<div className="col-lg-8 d-flex justify-content-center flex-wrap">
-					<Episodes episodes={episodes} title={manga.attributes.canonicalTitle}/>
+					
 				</div>
 			</div>
 			<style jsx>{`
@@ -227,16 +227,7 @@ Series.getInitialProps = async({query})=>{
 	.then(response=>{
 		return response.data;
 	})
-	const episodes = await fetch(manga.relationships.episodes.links.related,{
-	    headers:{
-	      "Accept": "application/vnd.api+json",
-	      "Content-Type": "application/vnd.api+json"
-	    }
-	})
-	.then(res=>res.json())
-	.then(response=>{
-		return response.data
-	})
 	
-	return {manga, episodes}
+	
+	return {manga}
 }

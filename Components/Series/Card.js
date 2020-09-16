@@ -1,17 +1,17 @@
 import Link from 'next/link';
 
 
-export default function Card({anime, type, id}){
+export default function Card({serie, type, id}){
 	return(
 		<>
 			<div className="card m-3">
-				<img className="card-img-top" src={anime.posterImage.small} alt={anime.canonicalTitle} width="100%"/>
+				<img className="card-img-top" src={serie.posterImage.small} alt={serie.canonicalTitle} width="100%"/>
 				<div className="back-text">
-					<p>{anime.synopsis.slice(0,80)} ...</p>
-					{type == 'manga' ? <Link href={`/manga?id=${id}`} ><a className="back-link btn mt-auto">Ver mas</a></Link> : <Link href={`/anime?id=${id}`}><a className="back-link btn mt-auto">Ver mas</a></Link>}
+					<p>{serie.synopsis.slice(0,80)} ...</p>
+					{type == 'manga' ? <Link href={`/manga?id=${id}`} ><a className="back-link btn mt-auto">Ver mas</a></Link> : <Link href={`/serie?id=${id}`}><a className="back-link btn mt-auto">Ver mas</a></Link>}
 				</div>
 				<div className="card-text">
-					<p className="text-title">{anime.canonicalTitle.length > 20 ? `${anime.canonicalTitle.slice(0,17)}...` : anime.canonicalTitle}</p>
+					<p className="text-title">{serie.canonicalTitle.length > 20 ? `${serie.canonicalTitle.slice(0,17)}...` : serie.canonicalTitle}</p>
 				</div>
 			</div>
 

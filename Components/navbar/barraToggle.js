@@ -21,14 +21,14 @@ export default function BarraToggle({user, imgUser}){
 		    			<p className="btn text-center my-3" style={{background: "#47D530", color: "white", fontWeight: "bold"}}>Dashboard</p>
 		    		</Link>
 		    	</div>}
-		    	<Link href="#">
-		    		<a className="nav-link">Listas</a>
+		    	<Link href="/">
+		    		<a className="nav-link">Inicio</a>
 		    	</Link>
-		    	<Link href="#">
-		    		<a className="nav-link">Categorias</a>
+		    	<Link href="/animes">
+		    		<a className="nav-link">Animes</a>
 		    	</Link>
-		    	<Link href="#">
-		    		<a className="nav-link">Recomendados</a>
+		    	<Link href="/mangas">
+		    		<a className="nav-link">Mangas</a>
 		    	</Link>
 		    	{user != 'Nada' ? <div className="d-flex justify-content-center mt-3"><input className="btn btn-danger" type="button" value="Logout" onClick={logout}/></div> : null }
 		 	 </div>
