@@ -62,6 +62,9 @@ export const verify = ()=>{
 		if(userCredentials) {
 			setImg(userCredentials.photoURL);
 			setUser(userCredentials.email);
+		}else{
+			setUser("Nada")
+			setImg("Nada")
 		}
 	});
 }
