@@ -1,9 +1,12 @@
 import Link from 'next/link';
-
+import Head from 'next/head';
 
 export default function Card({serie, type, id}){
 	return(
 		<>
+			<Head>
+			  <title>Gabriel Valero</title>
+			</Head>
 			<div className="card m-3">
 				<img className="card-img-top" src={serie.posterImage.small} alt={serie.canonicalTitle} width="100%"/>
 				<div className="back-text">
