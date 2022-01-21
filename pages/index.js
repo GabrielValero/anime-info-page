@@ -11,6 +11,9 @@ export default function Home({animes, mangas}) {
   return (
     <UserProvider>
     	<div style={{minHeight:"100vh"}}>
+        <Head>
+          <title>Gabriel Valero</title>
+        </Head>
     		<Navbar/>
     		<header className="d-flex flex-column align-items-center">
     		  <div className="header">
